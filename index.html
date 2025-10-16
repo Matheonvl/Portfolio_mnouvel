@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Mon Portfolio</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="experiences.html">Expériences</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="tableau.html">Tableau Excel</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div class="main-content">
+        <header>
+            <h1>Bienvenue sur mon Portfolio</h1>
+            <p>Je suis [Ton Nom], [Ton métier / objectif professionnel].</p>
+        </header>
+
+        <section class="profil">
+            <img src="images/photo-test.JPG" alt="Photo de profil" class="photo-profil">
+            <div>
+                <h2>À propos de moi</h2>
+                <p>
+                    Passionné par le développement web, j’aime créer des projets modernes et efficaces.
+                    Ce portfolio présente mes réalisations, mon parcours professionnel et ma veille technologique.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======== CONTACT ======== -->
+        <section class="contact">
+            <h2>Contactez-moi</h2>
+            <p>Vous pouvez me joindre via le formulaire ou directement sur WhatsApp :</p>
+
+            <!-- FORMULAIRE DE CONTACT -->
+            <form action="send_mail.php" method="POST" class="contact-form">
+                <input type="text" name="prenom" placeholder="Prénom" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="objet" placeholder="Objet" required>
+                <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
+
+                <!-- CAPTCHA SIMPLE -->
+                <div class="captcha">
+                    <label for="captcha">Combien font 3 + 4 ?</label>
+                    <input type="text" name="captcha" id="captcha" placeholder="Votre réponse" required>
+                </div>
+
+                <button type="submit" class="btn-contact">📧 Envoyer</button>
+            </form>
+
+            <!-- BOUTON WHATSAPP -->
+            <div class="contact-buttons">
+                <a href="https://wa.me/3360211517" target="_blank" class="btn-contact whatsapp">
+                    💬 Me contacter sur WhatsApp
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
