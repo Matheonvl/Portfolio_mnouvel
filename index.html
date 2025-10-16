@@ -19,13 +19,19 @@
                 <li><a href="tableau.html">Tableau Excel</a></li>
             </ul>
         </nav>
+
+        <!-- ICÔNES EN BAS -->
+        <div class="social-icons">
+            <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp" title="WhatsApp">💬</a>
+            <a href="https://www.linkedin.com/feed/" target="_blank" class="social linkedin" title="LinkedIn">🔗</a>
+        </div>
     </div>
 
     <!-- CONTENU PRINCIPAL -->
     <div class="main-content">
         <header>
             <h1>Bienvenue sur mon Portfolio</h1>
-            <p>Je me nomme Mathéo, je suis alternant à la maire de Lisieux / objectif professionnel].</p>
+            <p>Je me nomme Mathéo, je suis alternant à la mairie de Lisieux / objectif professionnel.</p>
         </header>
 
         <section class="profil">
@@ -42,10 +48,10 @@
         <!-- ======== CONTACT ======== -->
         <section class="contact">
             <h2>Contactez-moi</h2>
-            <p>Vous pouvez me joindre via le formulaire ou directement sur WhatsApp :</p>
+            <p>Vous pouvez me joindre via le formulaire ou directement :</p>
 
-            <!-- FORMULAIRE DE CONTACT -->
-            <form action="send_mail.php" method="POST" class="contact-form">
+            <!-- FORMULAIRE Formspree -->
+            <form action="https://formspree.io/f/mth71749" method="POST" class="contact-form" onsubmit="return verifierCaptcha()">
                 <input type="text" name="prenom" placeholder="Prénom" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="objet" placeholder="Objet" required>
@@ -60,20 +66,28 @@
                 <button type="submit" class="btn-contact">📧 Envoyer</button>
             </form>
 
-            <!-- BOUTON WHATSAPP -->
+            <!-- BOUTONS CONTACT -->
             <div class="contact-buttons">
                 <a href="https://wa.me/33602211517" target="_blank" class="btn-contact whatsapp">
-                    💬 Me contacter sur WhatsApp
+                    💬 WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/feed/" target="_blank" class="btn-contact linkedin">
+                    🔗 LinkedIn
                 </a>
             </div>
         </section>
     </div>
+
+    <script>
+        // Vérification simple du captcha
+        function verifierCaptcha() {
+            const reponse = document.getElementById('captcha').value.trim();
+            if (reponse !== "7") {
+                alert("Captcha incorrect. Veuillez réessayer.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
