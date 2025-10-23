@@ -168,6 +168,18 @@ body::before {
     box-shadow: 0 0 15px rgba(0,123,255,0.5);
 }
 
+/* ======== PHOTO CENTRÉE AU-DESSUS DU TEXTE ======== */
+.photo-haut {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 3px solid #007bff;
+    box-shadow: 0 0 15px rgba(0,123,255,0.5);
+}
+
 /* ======== CONTACT ======== */
 .contact {
     margin-top: 50px;
@@ -284,16 +296,4 @@ body::before {
     .social-icons {
         display: none;
     }
-}
-
-/* ======== PHOTO CENTRÉE AU-DESSUS DU TEXTE ======== */
-.photo-haut {
-    display: block;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 20px auto;
-    border: 3px solid #007bff;
-    box-shadow: 0 0 15px rgba(0,123,255,0.5);
 }
