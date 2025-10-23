@@ -1,66 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mon CV — Portfolio BTS SIO SISR</title>
-  <meta name="description" content="Page CV — Portfolio BTS SIO SISR">
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#4f46e5; --muted:#9aa4b2;
-      --radius:14px; color-scheme: dark;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background:linear-gradient(180deg,#071028 0%, #081226 60%);
-      color:#e6eef8; min-height:100vh; display:flex;
-      align-items:center; justify-content:center; padding:20px;
-    }
-    .container{
-      width:100%; max-width:900px; background:rgba(255,255,255,0.02);
-      border-radius:18px; box-shadow:0 8px 30px rgba(2,6,23,0.7);
-      padding:24px; text-align:center;
-    }
-    h1{
-      font-size:22px; margin-bottom:6px;
-    }
-    p.subtitle{
-      color:var(--muted); font-size:14px; margin-bottom:16px;
-    }
-    iframe{
-      width:100%; height:80vh; border:none;
-      border-radius:10px; background-color:#1a2238;
-    }
-    .download-btn{
-      display:inline-block; margin-top:14px; padding:10px 14px;
-      background:var(--accent); color:white; border:none;
-      border-radius:10px; text-decoration:none; font-size:15px;
-      transition:background .2s;
-    }
-    .download-btn:hover{background:#6366f1}
-    footer{
-      margin-top:20px; font-size:13px; color:var(--muted);
-    }
-    a.back{
-      color:var(--accent); text-decoration:none; margin-top:10px; display:inline-block;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon CV - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Mon CV</h1>
-    <p class="subtitle">Étudiant BTS SIO option SISR — Version intégrée</p>
+  <div class="sidebar">
+      <h2>Mon Portfolio</h2>
+      <nav>
+          <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="experiences.html">Expériences</a></li>
+              <li><a href="projets.html">Projets</a></li>
+              <li><a href="veille.html">Veille</a></li>
+              <li><a href="tableau.html">Tableau Excel</a></li>
+              <li><a href="cv.html" class="active">Mon CV</a></li>
+          </ul>
+      </nav>
+  </div>
 
-    <!-- ✅ Remplace le nom du fichier si nécessaire -->
-    <iframe src="cv.pdf" title="CV de Prénom Nom"></iframe>
+  <div class="main-content">
+    <header>
+      <h1>Mon CV</h1>
+      <p>Étudiant BTS SIO option SISR — Version intégrée</p>
+    </header>
 
-    <a href="cv.pdf" download class="download-btn">📄 Télécharger mon CV</a>
-
-    <footer>
-      <a href="index.html" class="back">← Retour au portfolio</a><br>
-      © 2025 — Portfolio BTS SIO SISR
-    </footer>
+    <section class="cv-section">
+      <iframe src="cv.pdf" title="CV de Mathéo"></iframe>
+      <a href="cv.pdf" download class="btn-contact">📄 Télécharger mon CV</a>
+    </section>
   </div>
 </body>
 </html>
