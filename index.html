@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>Mon Portfolio</h2>
         <nav>
@@ -19,20 +20,25 @@
                 <li><a href="cv.html">Mon CV</a></li>
             </ul>
         </nav>
+
+        <!-- ICÔNES EN BAS -->
         <div class="social-icons">
-            <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
-            <a href="https://www.linkedin.com/feed/" target="_blank" class="social linkedin">🔗</a>
+            <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp" title="WhatsApp">💬</a>
+            <a href="https://www.linkedin.com/feed/" target="_blank" class="social linkedin" title="LinkedIn">🔗</a>
         </div>
     </div>
 
+    <!-- CONTENU PRINCIPAL -->
     <div class="main-content">
         <header>
             <img src="ma_photo.jpg" alt="Photo de profil" class="photo-haut">
             <h1>Bienvenue sur mon Portfolio</h1>
             <p>Bonjour, je m'appelle Mathéo, enchanté ! J’ai 19 ans et je suis actuellement en deuxième année de BTS SIO au pôle BTS Alternance de Caen.  
             Je suis également alternant au service DNSI de la mairie de Lisieux, où j’occupe le poste d’apprenti technicien réseaux depuis février 2024.</p>
+
             <p>Après mon BTS, je prévois de poursuivre mes études en licence, puis éventuellement en master. À la fin de mon parcours, j’aimerais intégrer le monde professionnel en tant qu’administrateur systèmes et réseaux ou technicien support informatique.  
             Mon objectif à long terme est de créer ma propre entreprise spécialisée dans l’architecture réseau après quelques années d’expérience.</p>
+
             <p>Assez parlé de moi ! Si vous souhaitez en savoir un peu plus, je vous invite à lire la suite.  
             Ce portfolio a pour objectif de présenter les projets que j’ai réalisés en cours et en entreprise, ainsi que mes outils de veille informatique, mes expériences professionnelles et mon tableau de synthèse.</p>
         </header>
@@ -41,24 +47,28 @@
             <div>
                 <h2>À propos de moi</h2>
                 <p>
-Passionné par les réseaux, j’apprécie particulièrement les infrastructures réseau et la résolution des problèmes qui peuvent survenir.  
-J’ai découvert cette passion en entrant en seconde professionnelle « Systèmes numériques », option « Réseaux, infrastructures et systèmes communicants », où j’ai eu mes premières expériences dans ce domaine.  
-J’aime également le sport : ping-pong, rugby, basket loisir et muay thaï.  
-Enfin, j’adore les animaux : j’ai quatre chats, des poissons et un serpent.
+                    Passionné par les réseaux, j’apprécie particulièrement les infrastructures réseau et la résolution des problèmes qui peuvent survenir.  
+                    J’ai découvert cette passion en entrant en seconde professionnelle « Systèmes numériques », option « Réseaux, infrastructures et systèmes communicants », où j’ai eu mes premières expériences dans ce domaine.  
+                    J’aime également le sport : j’ai pratiqué le ping-pong pendant six mois avant de me consacrer au rugby pendant cinq ans. J’ai aussi fait du basket hors club pendant trois ans en activité loisir, et depuis septembre 2025, j’ai commencé à pratiquer le muay thaï en club.  
+                    Plus jeune, j’ai également pris des cours de théâtre dans le cadre d’un projet scolaire.  
+                    Enfin, j’adore les animaux : j’ai quatre chats, des poissons et un serpent.
                 </p>
             </div>
         </section>
 
+        <!-- ======== CONTACT ======== -->
         <section class="contact">
             <h2>Contactez-moi</h2>
             <p>Vous pouvez me joindre via le formulaire ou directement :</p>
 
+            <!-- FORMULAIRE Formspree -->
             <form action="https://formspree.io/f/mnngkkpj" method="POST" class="contact-form" onsubmit="return verifierCaptcha()">
                 <input type="text" name="prenom" placeholder="Prénom" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="objet" placeholder="Objet" required>
                 <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
 
+                <!-- CAPTCHA SIMPLE -->
                 <div class="captcha">
                     <label for="captcha">Combien font 3 + 4 ?</label>
                     <input type="text" name="captcha" id="captcha" placeholder="Votre réponse" required>
@@ -67,14 +77,20 @@ Enfin, j’adore les animaux : j’ai quatre chats, des poissons et un serpent.
                 <button type="submit" class="btn-contact">📧 Envoyer</button>
             </form>
 
+            <!-- BOUTONS CONTACT -->
             <div class="contact-buttons">
-                <a href="https://wa.me/33602211517" target="_blank" class="btn-contact whatsapp">💬 WhatsApp</a>
-                <a href="https://www.linkedin.com/feed/" target="_blank" class="btn-contact linkedin">🔗 LinkedIn</a>
+                <a href="https://wa.me/33602211517" target="_blank" class="btn-contact whatsapp">
+                    💬 WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/feed/" target="_blank" class="btn-contact linkedin">
+                    🔗 LinkedIn
+                </a>
             </div>
         </section>
     </div>
 
     <script>
+        // Vérification simple du captcha
         function verifierCaptcha() {
             const reponse = document.getElementById('captcha').value.trim();
             if (reponse !== "7") {
