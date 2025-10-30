@@ -15,7 +15,7 @@ body {
     background-size: cover;
 }
 
-/* Motif "informatique" discret */
+/* Motif discret */
 body::before {
     content: "";
     position: fixed;
@@ -52,7 +52,6 @@ body::before {
     letter-spacing: 1px;
 }
 
-/* Onglets */
 .sidebar ul {
     list-style: none;
     display: flex;
@@ -102,7 +101,7 @@ body::before {
     opacity: 1;
 }
 
-/* ======== ICÔNES SOCIALES EN BAS ======== */
+/* ======== ICÔNES SOCIALES ======== */
 .social-icons {
     margin-top: auto;
     display: flex;
@@ -123,13 +122,8 @@ body::before {
     filter: brightness(1.3);
 }
 
-.social.whatsapp {
-    color: #25D366;
-}
-
-.social.linkedin {
-    color: #0077B5;
-}
+.social.whatsapp { color: #25D366; }
+.social.linkedin { color: #0077B5; }
 
 /* ======== CONTENU PRINCIPAL ======== */
 .main-content {
@@ -150,32 +144,13 @@ body::before {
     line-height: 1.6;
 }
 
-/* ======== PROFIL ======== */
-.profil {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.photo-profil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #007bff;
-    box-shadow: 0 0 15px rgba(0,123,255,0.5);
-}
-
-/* ======== PHOTO CENTRÉE AU-DESSUS DU TEXTE ======== */
+/* ======== PHOTO HAUT (BANNIÈRE) ======== */
 .photo-haut {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 100%;
+    height: 220px; /* légèrement plus grand */
     object-fit: cover;
     display: block;
-    margin: 0 auto 20px auto;
+    margin-bottom: 30px;
     border: 3px solid #007bff;
     box-shadow: 0 0 15px rgba(0,123,255,0.5);
 }
@@ -261,10 +236,6 @@ body::before {
     background: linear-gradient(90deg, #0077B5, #005582);
 }
 
-.btn-contact.linkedin:hover {
-    box-shadow: 0 0 10px rgba(0, 119, 181, 0.6);
-}
-
 /* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
     body {
@@ -275,7 +246,6 @@ body::before {
         width: 100%;
         flex-direction: row;
         height: auto;
-        box-shadow: none;
         justify-content: space-around;
     }
 
@@ -289,11 +259,11 @@ body::before {
         padding: 20px;
     }
 
-    .projet img {
-        width: 100%;
-    }
-
     .social-icons {
         display: none;
+    }
+
+    .photo-haut {
+        height: 150px;
     }
 }
