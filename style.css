@@ -146,9 +146,9 @@ body::before {
 /* ======== PHOTO BANNIÈRE ======== */
 .photo-haut {
     width: 100%;
-    height: 200px;           /* réduit = dézoom */
+    height: 260px;           /* hauteur augmentée pour voir visage entier */
     object-fit: cover;
-    object-position: 50% 35%; /* recentre visage et cheveux */
+    object-position: 50% 30%; /* recentre le visage (cheveux + menton) */
     display: block;
     margin-bottom: 30px;
     border: 3px solid #007bff;
@@ -264,7 +264,7 @@ body::before {
     }
 
     .photo-haut {
-        height: 160px;
-        object-position: 50% 40%; /* ajustement pour mobile */
+        height: 200px;
+        object-position: 50% 35%; /* ajustement pour mobile */
     }
 }
