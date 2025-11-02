@@ -23,7 +23,6 @@
       </ul>
     </nav>
 
-    <!-- ICÔNES SOCIALES EN BAS -->
     <div class="social-icons">
       <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
       <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
@@ -32,6 +31,9 @@
 
   <!-- CONTENU PRINCIPAL -->
   <div class="main-content">
+    <!-- PHOTO pleine largeur au-dessus -->
+    <img src="ma_photo.jpg" alt="Photo de profil" class="photo-full">
+
     <header>
       <h1>Bienvenue sur mon Portfolio</h1>
       <p>Bonjour, je m'appelle Mathéo, enchanté ! J’ai 19 ans et je suis actuellement en deuxième année de BTS SIO au pôle BTS Alternance de Caen.  
@@ -45,7 +47,6 @@
     </header>
 
     <section class="profil">
-      <img src="ma_photo.jpg" alt="Photo de profil" class="photo-profil">
       <div>
         <h2>À propos de moi</h2>
         <p>
@@ -63,14 +64,12 @@
       <h2>Contactez-moi</h2>
       <p>Vous pouvez me joindre via le formulaire ou directement :</p>
 
-      <!-- FORMULAIRE Formspree -->
       <form action="https://formspree.io/f/mnngkkpj" method="POST" class="contact-form" onsubmit="return verifierCaptcha()">
         <input type="text" name="prenom" placeholder="Prénom" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="objet" placeholder="Objet" required>
         <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
 
-        <!-- CAPTCHA SIMPLE -->
         <div class="captcha">
           <label for="captcha">Combien font 3 + 4 ?</label>
           <input type="text" name="captcha" id="captcha" placeholder="Votre réponse" required>
@@ -79,7 +78,6 @@
         <button type="submit" class="btn-contact">📧 Envoyer</button>
       </form>
 
-      <!-- BOUTONS CONTACT -->
       <div class="contact-buttons">
         <a href="https://wa.me/33602211517" target="_blank" class="btn-contact whatsapp">
           💬 WhatsApp
@@ -92,7 +90,6 @@
   </div>
 
   <script>
-    // Vérification simple du captcha
     function verifierCaptcha() {
       const reponse = document.getElementById('captcha').value.trim();
       if (reponse !== "7") {
