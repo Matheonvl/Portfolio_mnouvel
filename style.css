@@ -109,17 +109,8 @@ body::before {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.social {
-    font-size: 1.4rem;
-    text-decoration: none;
-    transition: transform 0.2s, filter 0.2s;
-}
-
-.social:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.3);
-}
-
+.social { font-size: 1.4rem; text-decoration: none; transition: transform 0.2s, filter 0.2s; }
+.social:hover { transform: translateY(-3px); filter: brightness(1.3); }
 .social.whatsapp { color: #25D366; }
 .social.linkedin { color: #0077B5; }
 
@@ -134,12 +125,12 @@ body::before {
 .main-content h1 { color: #fff; margin-bottom: 20px; font-size: 2rem; }
 .main-content p, li { color: #ddd; line-height: 1.6; }
 
-/* ======== PHOTO PLEINE LARGEUR ======== */
-.photo-full {
-    width: 100%;
-    height: 300px; /* fixe, peut ajuster pour voir visage */
-    object-fit: cover;
-    object-position: center 35%;
+/* ======== PHOTO HORIZONTALE ======== */
+.photo-horizontal {
+    width: 100%;          /* largeur pleine */
+    height: 300px;        /* fixe, ajustable */
+    object-fit: cover;    
+    object-position: center 35%; 
     margin-bottom: 20px;
 }
 
@@ -159,13 +150,7 @@ body::before {
 .contact h2 { color: #4da3ff; margin-bottom: 10px; }
 .contact p { color: #ccc; margin-bottom: 25px; }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto 25px auto;
-}
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto 25px auto; }
 
 .contact-form input,
 .contact-form textarea {
@@ -208,5 +193,5 @@ body::before {
     .sidebar ul { flex-direction: row; flex-wrap: wrap; justify-content: center; }
     .main-content { padding: 20px; }
     .social-icons { display: none; }
-    .photo-full { height: 200px; } /* réduit hauteur sur mobile */
+    .photo-horizontal { height: 200px; }
 }
