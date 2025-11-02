@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ===== SIDEBAR ===== -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
     <nav>
@@ -27,23 +28,27 @@
     </div>
   </div>
 
+  <!-- ===== MAIN CONTENT ===== -->
   <div class="main-content">
-    <img src="ma_photo.jpg" alt="Photo de profil" class="photo-haut" />
+    <!-- Photo de profil -->
+    <img src="ma_photo.jpg" alt="Photo de profil" class="photo-horizontal" />
+
     <header>
       <h1>Tableau de synthèse</h1>
       <p>Tableau récapitulatif des compétences / projets (Excel).</p>
     </header>
 
     <section class="tableau-section">
-      <!-- Si tu souhaites afficher un fichier Excel, cela dépend de l'hébergeur.
-           Ici on place un iframe qui peut pointer vers un viewer ou vers un fichier convertible. -->
-      <p>Si tu veux afficher un fichier Excel en ligne, héberge-le (Google Drive, OneDrive) puis place le lien de visualisation ici. Sinon, tu peux proposer un téléchargement :</p>
+      <!-- Option 1 : Affichage en ligne via Google Sheets / OneDrive -->
+      <!-- 
+      <iframe src="LIEN_VERS_TON_FICHIER_EXCEL_EN_LIGNE" width="100%" height="600" style="border:1px solid #ccc;"></iframe>
+      -->
 
-      <div style="text-align:center; margin-top:18px;">
-        <a href="ton_tableau.xlsx" class="btn-contact" download>⬇ Télécharger le tableau</a>
-      </div>
+      <!-- Option 2 : Téléchargement direct -->
+      <p style="text-align:center; margin-top:18px;">
+        <a href="E5 - Tableau de synthèse.xlsx" class="btn-contact" download>⬇ Télécharger le tableau</a>
+      </p>
     </section>
   </div>
 </body>
 </html>
-
