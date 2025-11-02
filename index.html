@@ -23,28 +23,25 @@
     </nav>
     <div class="social-icons">
       <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
-      <a href="https://www.linkedin.com/feed/" target="_blank" class="social linkedin">🔗</a>
+      <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
     </div>
   </div>
 
   <div class="main-content">
-    <!-- ✅ La photo reste uniquement ici -->
     <img src="ma_photo.jpg" alt="Photo de profil" class="photo-haut" />
 
     <header>
       <h1>Bienvenue sur mon Portfolio</h1>
-      <p>Bonjour, je m'appelle Mathéo, enchanté ! J’ai 19 ans et je suis actuellement en deuxième année de BTS SIO au pôle BTS Alternance de Caen. Je suis alternant au service DNSI de la mairie de Lisieux, apprenti technicien réseaux depuis février 2024.</p>
-      <p>Après mon BTS, je prévois de poursuivre mes études en licence puis master. À terme, j'aimerais être administrateur systèmes & réseaux et créer ma propre entreprise d'architecture réseau.</p>
+      <p>Bonjour, je m'appelle Mathéo, enchanté ! J’ai 19 ans et je suis en deuxième année de BTS SIO en alternance.</p>
     </header>
 
     <section class="profil">
       <h2>À propos de moi</h2>
-      <p>Passionné par les réseaux, j’apprécie les infrastructures et la résolution d'incidents. J’ai commencé en seconde professionnelle Systèmes numériques (option réseaux). J'aime le sport (rugby, ping-pong, muay thai) et les animaux (4 chats, poissons, serpent).</p>
+      <p>Passionné par les réseaux, j’aime les infrastructures et la résolution d'incidents. J'aime aussi le sport et les animaux.</p>
     </section>
 
     <section class="contact">
       <h2>Contactez-moi</h2>
-      <p>Vous pouvez me joindre via le formulaire ci-dessous :</p>
       <form action="https://formspree.io/f/mnngkkpj" method="POST" class="contact-form" onsubmit="return verifierCaptcha()">
         <input type="text" name="prenom" placeholder="Prénom" required />
         <input type="email" name="email" placeholder="Email" required />
@@ -53,7 +50,7 @@
 
         <div class="captcha">
           <label for="captcha">Combien font 3 + 4 ?</label>
-          <input type="text" name="captcha" id="captcha" placeholder="Votre réponse" required />
+          <input type="text" id="captcha" required />
         </div>
 
         <button type="submit" class="btn-contact">📧 Envoyer</button>
@@ -63,9 +60,9 @@
 
   <script>
     function verifierCaptcha() {
-      const reponse = document.getElementById('captcha').value.trim();
-      if (reponse !== "7") {
-        alert("Captcha incorrect. Veuillez réessayer.");
+      const r = document.getElementById('captcha').value.trim();
+      if (r !== "7") {
+        alert("Captcha incorrect.");
         return false;
       }
       return true;
