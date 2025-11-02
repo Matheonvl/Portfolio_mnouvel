@@ -159,14 +159,15 @@ body::before {
     flex-wrap: wrap;
 }
 
-/* Photo profil sur la page d'accueil uniquement */
+/* Photo profil accueil — rectangle et recadrage visage */
 .photo-profil {
-    width: 100%;
-    max-height: 350px;       /* Hauteur limitée pour voir le visage */
-    object-fit: cover;       /* Recadrage correct */
-    object-position: center 25%; /* Focus sur le visage */
+    width: 100%;            /* largeur complète */
+    max-height: 300px;      /* hauteur limitée */
+    object-fit: cover;      /* recadrage sans déformer */
+    object-position: center 35%; /* focus sur le visage légèrement vers le bas */
     display: block;
     margin-bottom: 20px;
+    border-radius: 0;       /* pas d'arrondi */
 }
 
 /* ======== CONTACT ======== */
@@ -276,10 +277,6 @@ body::before {
 
     .main-content {
         padding: 20px;
-    }
-
-    .projet img {
-        width: 100%;
     }
 
     .social-icons {
