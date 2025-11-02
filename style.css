@@ -139,20 +139,21 @@ body::before {
     line-height: 1.6; 
 }
 
-/* ======== PHOTO HORIZONTALE (TÊTE SEULE) ======== */
+/* ======== PHOTO HORIZONTALE (TÊTE/HAUT TORSE) ======== */
 .photo-horizontal {
     width: 100%;
-    height: 120px;               /* très courte pour montrer seulement tête/haut torse */
-    object-fit: cover;           
-    object-position: center 45%; /* recentre sur le visage */
+    height: 160px;                /* Hauteur légèrement augmentée */
+    object-fit: cover;
+    object-position: center 55%;  /* Recentre le visage au milieu */
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-horizontal:hover {
     transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ======== PROFIL ======== */
@@ -243,9 +244,9 @@ body::before {
     .sidebar ul { flex-direction: row; flex-wrap: wrap; justify-content: center; }
     .main-content { padding: 20px; }
     .social-icons { display: none; }
-    .photo-horizontal { height: 100px; object-position: center 45%; }
+    .photo-horizontal { height: 130px; object-position: center 55%; }
 }
 
 @media (max-width: 480px) {
-    .photo-horizontal { height: 80px; object-position: center 45%; }
+    .photo-horizontal { height: 100px; object-position: center 55%; }
 }
