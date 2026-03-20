@@ -18,39 +18,109 @@
         <li><a href="veille.html">Veille</a></li>
         <li><a href="tableau.html">Tableau Excel</a></li>
         <li><a href="CV.html">Mon CV</a></li>
-        <li><a href="epreuveE6.html">Épreuve E6</a></li>
-        <li><a href="epreuveE7.html">Épreuve E7</a></li>
       </ul>
     </nav>
 
-    <!-- ICÔNES SOCIALES -->
     <div class="social-icons">
       <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
       <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
     </div>
   </div>
 
-  <!-- CONTENU PRINCIPAL -->
   <div class="main-content">
     <header>
       <h1>Mes projets</h1>
-      <p>Voici mes projets réalisés en entreprise et en cours de formation.</p>
+      <p>Clique sur une case pour accéder directement au contenu du projet.</p>
     </header>
 
-    <section>
+    <section class="projets-bloc">
       <h2>🏢 Projets en entreprise</h2>
+      <div class="projets-grid">
+        <a class="projet-card" href="#projet-glpi-ad">
+          <h3>GLPI + Active Directory</h3>
+          <p>Gestion de parc, ticketing, LDAP et administration d'un domaine Windows Server.</p>
+          <span>Voir le contenu ↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="projets-bloc">
+      <h2>🎓 Projets de cours</h2>
+      <div class="projets-grid">
+        <a class="projet-card" href="#projet-zabbix">
+          <h3>Supervision réseau avec Zabbix</h3>
+          <p>Surveillance des équipements, alertes et tableaux de bord de disponibilité.</p>
+          <span>Voir le contenu ↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="projets-bloc">
+      <h2>🎮 Projet perso</h2>
+      <div class="projets-grid">
+        <a class="projet-card" href="#projet-minecraft">
+          <h3>Création d'un serveur Minecraft</h3>
+          <p>Déploiement, sécurité, gestion des plugins et sauvegardes automatisées.</p>
+          <span>Voir le contenu ↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="projet-glpi-ad" class="projet-detail">
+      <h2>Projet en entreprise : installation de GLPI + Active Directory</h2>
+      <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
+      <p>
+        Mise en place d'un GLPI pour assurer le suivi matériel, centraliser les demandes utilisateurs
+        et améliorer le traitement des incidents en entreprise.
+      </p>
+
+      <h3>Objectif</h3>
+      <p>
+        Déployer une solution de ticketing et d'inventaire fiable, connectée à l'annuaire Active Directory
+        pour une gestion centralisée des comptes.
+      </p>
+
+      <h3>Étapes principales</h3>
       <ul>
-        <li>Mise en place d’un GLPI pour la gestion des incidents et du parc informatique</li>
-        <li>Refonte d’une installation réseau complète (câblage, serveurs, postes)</li>
+        <li>Installation de XAMPP sur Windows Server et déploiement de GLPI.</li>
+        <li>Configuration de la base de données et des droits d'administration.</li>
+        <li>Mise en place de la liaison LDAP entre GLPI et le domaine Active Directory.</li>
+        <li>Installation du plugin Formcreator pour créer des formulaires personnalisés.</li>
+        <li>Création des catégories de tickets, notifications mail et workflows de traitement.</li>
+        <li>Intégration et mise à jour de l'inventaire matériel/logiciel.</li>
+      </ul>
+
+      <h3>Partie Active Directory (Windows Server 2026)</h3>
+      <p>
+        Installation du rôle AD DS, promotion en contrôleur de domaine, création des OU,
+        gestion des utilisateurs/groupes et application de GPO pour renforcer la sécurité.
+      </p>
+    </section>
+
+    <section id="projet-zabbix" class="projet-detail">
+      <h2>Projet de cours : supervision avec Zabbix</h2>
+      <img src="zabbix.png" alt="Projet Zabbix" style="width:100%; max-width:480px; display:block; margin:16px auto;">
+      <p>
+        Projet orienté supervision réseau pour surveiller l'état des serveurs et des équipements,
+        anticiper les pannes et améliorer la disponibilité des services.
+      </p>
+      <ul>
+        <li>Configuration des hôtes, templates et déclencheurs d'alertes.</li>
+        <li>Création de tableaux de bord de suivi en temps réel.</li>
+        <li>Analyse des événements et documentation des actions correctives.</li>
       </ul>
     </section>
 
-    <section>
-      <h2>🎓 Projets en cours</h2>
+    <section id="projet-minecraft" class="projet-detail">
+      <h2>Projet perso : création d'un serveur Minecraft</h2>
+      <p>
+        Mise en place d'un serveur Minecraft pour apprendre l'administration système dans un contexte concret.
+      </p>
       <ul>
-        <li>Supervision réseau avec Zabbix</li>
-        <li>Mise en place d’un Active Directory pour la gestion des utilisateurs et groupes</li>
-        <li>Veille technologique et documentation des solutions</li>
+        <li>Installation du serveur Java et configuration réseau (ports, accès).</li>
+        <li>Gestion des permissions et des plugins/modérations.</li>
+        <li>Automatisation des sauvegardes et redémarrages.</li>
+        <li>Optimisation des performances et surveillance de la stabilité.</li>
       </ul>
     </section>
   </div>
