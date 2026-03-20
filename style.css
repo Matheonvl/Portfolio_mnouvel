@@ -237,6 +237,79 @@ body::before {
 .btn-contact.linkedin { background: linear-gradient(90deg, #0077B5, #005582); }
 .btn-contact.linkedin:hover { box-shadow: 0 0 10px rgba(0, 119, 181, 0.6); }
 
+
+
+/* ======== PAGE PROJETS ======== */
+.projets-bloc {
+    margin-top: 30px;
+}
+
+.projets-bloc h2 {
+    margin-bottom: 15px;
+    color: #79b8ff;
+}
+
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.projet-card {
+    display: block;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.projet-card h3 {
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.projet-card p {
+    color: #d8d8d8;
+    margin-bottom: 14px;
+}
+
+.projet-card span {
+    color: #4da3ff;
+    font-weight: 600;
+}
+
+.projet-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(77, 163, 255, 0.8);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+
+.projet-detail {
+    margin-top: 35px;
+    padding: 22px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.projet-detail h2 {
+    color: #9fd0ff;
+    margin-bottom: 10px;
+}
+
+.projet-detail h3 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #7dbbff;
+}
+
+.projet-detail ul {
+    margin-left: 20px;
+}
+
 /* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
     body { flex-direction: column; }
