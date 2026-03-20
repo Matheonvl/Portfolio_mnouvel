@@ -35,9 +35,9 @@
     <section class="projets-bloc">
       <h2>🏢 Projets en entreprise</h2>
       <div class="projets-grid">
-        <button class="projet-card modal-trigger" data-modal="modal-glpi-ad" type="button">
-          <h3>GLPI + Active Directory</h3>
-          <p>Gestion de parc, ticketing, LDAP et administration d'un domaine Windows Server.</p>
+        <button class="projet-card modal-trigger" data-modal="modal-entreprise" type="button">
+          <h3>Support utilisateurs en entreprise</h3>
+          <p>Traitement des incidents, interventions poste, réseau et suivi de tickets.</p>
           <span>Ouvrir le projet ↗</span>
         </button>
       </div>
@@ -46,6 +46,18 @@
     <section class="projets-bloc">
       <h2>🎓 Projets de cours</h2>
       <div class="projets-grid">
+        <button class="projet-card modal-trigger" data-modal="modal-glpi" type="button">
+          <h3>GLPI</h3>
+          <p>Gestion du parc, tickets et formulaires de demandes.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+
+        <button class="projet-card modal-trigger" data-modal="modal-ad" type="button">
+          <h3>Active Directory</h3>
+          <p>Mise en place d'un domaine Windows et administration des comptes.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+
         <button class="projet-card modal-trigger" data-modal="modal-zabbix" type="button">
           <h3>Supervision réseau avec Zabbix</h3>
           <p>Surveillance des équipements, alertes et tableaux de bord de disponibilité.</p>
@@ -66,29 +78,48 @@
     </section>
   </div>
 
-  <!-- MODAL GLPI + AD -->
-  <div class="modal" id="modal-glpi-ad" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI et Active Directory">
+  <!-- MODAL ENTREPRISE -->
+  <div class="modal" id="modal-entreprise" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet entreprise">
       <button class="modal-close" type="button" aria-label="Fermer">✖</button>
-      <h2>Projet en entreprise : installation de GLPI + Active Directory</h2>
-      <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
-      <p>Mise en place d'un GLPI pour assurer le suivi matériel, centraliser les demandes utilisateurs et améliorer le traitement des incidents.</p>
-
-      <h3>Objectif</h3>
-      <p>Déployer une solution de ticketing et d'inventaire fiable, connectée à l'annuaire Active Directory.</p>
-
-      <h3>Étapes principales</h3>
+      <h2>Projet en entreprise : support utilisateurs</h2>
+      <p>Activités de support quotidien : assistance, diagnostic et résolution des incidents.</p>
       <ul>
-        <li>Installation de XAMPP sur Windows Server et déploiement de GLPI.</li>
-        <li>Configuration de la base de données et des droits d'administration.</li>
-        <li>Mise en place de la liaison LDAP entre GLPI et le domaine Active Directory.</li>
-        <li>Installation du plugin Formcreator pour créer des formulaires personnalisés.</li>
-        <li>Création des catégories de tickets, notifications mail et workflows de traitement.</li>
-        <li>Intégration et mise à jour de l'inventaire matériel/logiciel.</li>
+        <li>Prise en charge des tickets utilisateurs.</li>
+        <li>Interventions sur postes, imprimantes et accès réseau.</li>
+        <li>Suivi des incidents et documentation des solutions.</li>
       </ul>
+    </div>
+  </div>
 
-      <h3>Partie Active Directory (Windows Server 2026)</h3>
-      <p>Installation du rôle AD DS, promotion en contrôleur de domaine, création des OU, gestion des utilisateurs/groupes et application de GPO.</p>
+  <!-- MODAL GLPI -->
+  <div class="modal" id="modal-glpi" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet de cours : GLPI</h2>
+      <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
+      <p>Mise en place d'un GLPI pour le suivi matériel, la centralisation des demandes et la gestion des incidents.</p>
+      <ul>
+        <li>Installation de XAMPP et déploiement de GLPI.</li>
+        <li>Configuration de la base de données et des droits.</li>
+        <li>Création des catégories de tickets et notifications mail.</li>
+        <li>Installation du plugin Formcreator pour les formulaires.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL ACTIVE DIRECTORY -->
+  <div class="modal" id="modal-ad" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Active Directory">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet de cours : Active Directory</h2>
+      <p>Mise en place d'un domaine Active Directory sous Windows Server, avec gestion centralisée des utilisateurs et postes.</p>
+      <ul>
+        <li>Installation du rôle AD DS et promotion en contrôleur de domaine.</li>
+        <li>Création des OU, utilisateurs et groupes de sécurité.</li>
+        <li>Application de GPO pour la sécurité et la configuration des postes.</li>
+        <li>Tests de jonction des postes clients au domaine.</li>
+      </ul>
     </div>
   </div>
 
@@ -98,7 +129,7 @@
       <button class="modal-close" type="button" aria-label="Fermer">✖</button>
       <h2>Projet de cours : supervision avec Zabbix</h2>
       <img src="zabbix.png" alt="Projet Zabbix" style="width:100%; max-width:480px; display:block; margin:16px auto;">
-      <p>Projet orienté supervision réseau pour surveiller l'état des serveurs et des équipements, anticiper les pannes et améliorer la disponibilité.</p>
+      <p>Projet orienté supervision réseau pour surveiller l'état des serveurs et des équipements.</p>
       <ul>
         <li>Configuration des hôtes, templates et déclencheurs d'alertes.</li>
         <li>Création de tableaux de bord de suivi en temps réel.</li>
@@ -114,7 +145,7 @@
       <h2>Projet perso : création d'un serveur Minecraft</h2>
       <p>Mise en place d'un serveur Minecraft pour apprendre l'administration système dans un contexte concret.</p>
       <ul>
-        <li>Installation du serveur Java et configuration réseau (ports, accès).</li>
+        <li>Installation du serveur Java et configuration réseau.</li>
         <li>Gestion des permissions et des plugins/modérations.</li>
         <li>Automatisation des sauvegardes et redémarrages.</li>
         <li>Optimisation des performances et surveillance de la stabilité.</li>
