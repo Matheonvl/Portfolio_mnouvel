@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
     <nav>
@@ -30,55 +29,53 @@
   <div class="main-content">
     <header>
       <h1>Mes projets</h1>
-      <p>Clique sur une case pour accéder directement au contenu du projet.</p>
+      <p>Clique sur une case : le contenu du projet s'ouvre en popup.</p>
     </header>
 
     <section class="projets-bloc">
       <h2>🏢 Projets en entreprise</h2>
       <div class="projets-grid">
-        <a class="projet-card" href="#projet-glpi-ad">
+        <button class="projet-card modal-trigger" data-modal="modal-glpi-ad" type="button">
           <h3>GLPI + Active Directory</h3>
           <p>Gestion de parc, ticketing, LDAP et administration d'un domaine Windows Server.</p>
-          <span>Voir le contenu ↓</span>
-        </a>
+          <span>Ouvrir le projet ↗</span>
+        </button>
       </div>
     </section>
 
     <section class="projets-bloc">
       <h2>🎓 Projets de cours</h2>
       <div class="projets-grid">
-        <a class="projet-card" href="#projet-zabbix">
+        <button class="projet-card modal-trigger" data-modal="modal-zabbix" type="button">
           <h3>Supervision réseau avec Zabbix</h3>
           <p>Surveillance des équipements, alertes et tableaux de bord de disponibilité.</p>
-          <span>Voir le contenu ↓</span>
-        </a>
+          <span>Ouvrir le projet ↗</span>
+        </button>
       </div>
     </section>
 
     <section class="projets-bloc">
       <h2>🎮 Projet perso</h2>
       <div class="projets-grid">
-        <a class="projet-card" href="#projet-minecraft">
+        <button class="projet-card modal-trigger" data-modal="modal-minecraft" type="button">
           <h3>Création d'un serveur Minecraft</h3>
           <p>Déploiement, sécurité, gestion des plugins et sauvegardes automatisées.</p>
-          <span>Voir le contenu ↓</span>
-        </a>
+          <span>Ouvrir le projet ↗</span>
+        </button>
       </div>
     </section>
+  </div>
 
-    <section id="projet-glpi-ad" class="projet-detail">
+  <!-- MODAL GLPI + AD -->
+  <div class="modal" id="modal-glpi-ad" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI et Active Directory">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
       <h2>Projet en entreprise : installation de GLPI + Active Directory</h2>
       <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
-      <p>
-        Mise en place d'un GLPI pour assurer le suivi matériel, centraliser les demandes utilisateurs
-        et améliorer le traitement des incidents en entreprise.
-      </p>
+      <p>Mise en place d'un GLPI pour assurer le suivi matériel, centraliser les demandes utilisateurs et améliorer le traitement des incidents.</p>
 
       <h3>Objectif</h3>
-      <p>
-        Déployer une solution de ticketing et d'inventaire fiable, connectée à l'annuaire Active Directory
-        pour une gestion centralisée des comptes.
-      </p>
+      <p>Déployer une solution de ticketing et d'inventaire fiable, connectée à l'annuaire Active Directory.</p>
 
       <h3>Étapes principales</h3>
       <ul>
@@ -91,38 +88,75 @@
       </ul>
 
       <h3>Partie Active Directory (Windows Server 2026)</h3>
-      <p>
-        Installation du rôle AD DS, promotion en contrôleur de domaine, création des OU,
-        gestion des utilisateurs/groupes et application de GPO pour renforcer la sécurité.
-      </p>
-    </section>
+      <p>Installation du rôle AD DS, promotion en contrôleur de domaine, création des OU, gestion des utilisateurs/groupes et application de GPO.</p>
+    </div>
+  </div>
 
-    <section id="projet-zabbix" class="projet-detail">
+  <!-- MODAL ZABBIX -->
+  <div class="modal" id="modal-zabbix" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Zabbix">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
       <h2>Projet de cours : supervision avec Zabbix</h2>
       <img src="zabbix.png" alt="Projet Zabbix" style="width:100%; max-width:480px; display:block; margin:16px auto;">
-      <p>
-        Projet orienté supervision réseau pour surveiller l'état des serveurs et des équipements,
-        anticiper les pannes et améliorer la disponibilité des services.
-      </p>
+      <p>Projet orienté supervision réseau pour surveiller l'état des serveurs et des équipements, anticiper les pannes et améliorer la disponibilité.</p>
       <ul>
         <li>Configuration des hôtes, templates et déclencheurs d'alertes.</li>
         <li>Création de tableaux de bord de suivi en temps réel.</li>
         <li>Analyse des événements et documentation des actions correctives.</li>
       </ul>
-    </section>
+    </div>
+  </div>
 
-    <section id="projet-minecraft" class="projet-detail">
+  <!-- MODAL MINECRAFT -->
+  <div class="modal" id="modal-minecraft" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Minecraft">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
       <h2>Projet perso : création d'un serveur Minecraft</h2>
-      <p>
-        Mise en place d'un serveur Minecraft pour apprendre l'administration système dans un contexte concret.
-      </p>
+      <p>Mise en place d'un serveur Minecraft pour apprendre l'administration système dans un contexte concret.</p>
       <ul>
         <li>Installation du serveur Java et configuration réseau (ports, accès).</li>
         <li>Gestion des permissions et des plugins/modérations.</li>
         <li>Automatisation des sauvegardes et redémarrages.</li>
         <li>Optimisation des performances et surveillance de la stabilité.</li>
       </ul>
-    </section>
+    </div>
   </div>
+
+  <script>
+    const triggers = document.querySelectorAll('.modal-trigger');
+    const modals = document.querySelectorAll('.modal');
+
+    function closeAllModals() {
+      modals.forEach((modal) => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal || event.target.classList.contains('modal-close')) {
+          closeAllModals();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeAllModals();
+    });
+  </script>
 </body>
 </html>
