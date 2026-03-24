@@ -35,9 +35,9 @@
     <section class="projets-bloc">
       <h2>🏢 Projets en entreprise</h2>
       <div class="projets-grid">
-        <button class="projet-card modal-trigger" data-modal="modal-entreprise" type="button">
-          <h3>Support utilisateurs en entreprise</h3>
-          <p>Traitement des incidents, interventions poste, réseau et suivi de tickets.</p>
+        <button class="projet-card modal-trigger" data-modal="modal-glpi-entreprise" type="button">
+          <h3>GLPI en entreprise</h3>
+          <p>Mise en place d'un outil de ticketing et d'inventaire pour structurer le support.</p>
           <span>Ouvrir le projet ↗</span>
         </button>
       </div>
@@ -46,12 +46,6 @@
     <section class="projets-bloc">
       <h2>🎓 Projets de cours</h2>
       <div class="projets-grid">
-        <button class="projet-card modal-trigger" data-modal="modal-glpi" type="button">
-          <h3>GLPI</h3>
-          <p>Gestion du parc, tickets et formulaires de demandes.</p>
-          <span>Ouvrir le projet ↗</span>
-        </button>
-
         <button class="projet-card modal-trigger" data-modal="modal-ad" type="button">
           <h3>Active Directory</h3>
           <p>Mise en place d'un domaine Windows et administration des comptes.</p>
@@ -78,32 +72,33 @@
     </section>
   </div>
 
-  <!-- MODAL ENTREPRISE -->
-  <div class="modal" id="modal-entreprise" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet entreprise">
+  <!-- MODAL ENTREPRISE : GLPI -->
+  <div class="modal" id="modal-glpi-entreprise" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI en entreprise">
       <button class="modal-close" type="button" aria-label="Fermer">✖</button>
-      <h2>Projet en entreprise : support utilisateurs</h2>
-      <p>Activités de support quotidien : assistance, diagnostic et résolution des incidents.</p>
-      <ul>
-        <li>Prise en charge des tickets utilisateurs.</li>
-        <li>Interventions sur postes, imprimantes et accès réseau.</li>
-        <li>Suivi des incidents et documentation des solutions.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- MODAL GLPI -->
-  <div class="modal" id="modal-glpi" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI">
-      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
-      <h2>Projet de cours : GLPI</h2>
+      <h2>Projet en entreprise : mise en place de GLPI</h2>
       <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
-      <p>Mise en place d'un GLPI pour le suivi matériel, la centralisation des demandes et la gestion des incidents.</p>
+
+      <h3>Contexte : pourquoi il fallait le mettre en place ?</h3>
+      <p>
+        Avant GLPI, les demandes passaient surtout par mail ou à l'oral, ce qui rendait le suivi difficile
+        (perte d'informations, priorisation compliquée, manque d'historique). L'inventaire du matériel
+        n'était pas centralisé non plus.
+      </p>
+
+      <h3>Objectifs</h3>
       <ul>
-        <li>Installation de XAMPP et déploiement de GLPI.</li>
-        <li>Configuration de la base de données et des droits.</li>
-        <li>Création des catégories de tickets et notifications mail.</li>
-        <li>Installation du plugin Formcreator pour les formulaires.</li>
+        <li>Centraliser les tickets et améliorer le suivi des demandes utilisateurs.</li>
+        <li>Mettre en place un inventaire clair du parc informatique.</li>
+        <li>Réduire les délais de traitement grâce à une meilleure organisation.</li>
+      </ul>
+
+      <h3>Mise en œuvre</h3>
+      <ul>
+        <li>Installation de GLPI avec la pile XAMPP.</li>
+        <li>Configuration des catégories, files de tickets et notifications mail.</li>
+        <li>Connexion LDAP/Active Directory pour l'authentification des utilisateurs.</li>
+        <li>Ajout du plugin Formcreator pour créer des formulaires adaptés aux besoins.</li>
       </ul>
     </div>
   </div>
