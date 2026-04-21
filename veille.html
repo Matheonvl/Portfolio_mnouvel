@@ -62,6 +62,15 @@
       </ul>
       <p style="font-size:0.9rem; color:#aaa; margin-top:10px;">Source RSS : Daily.dev (exemple).</p>
     </section>
+
+    <section class="rss-feed">
+      <h2>📸 Exemple Instagram : @mkbhd</h2>
+      <p>Affichage des derniers posts Instagram de Marques Brownlee (exemple de rendu).</p>
+      <ul id="insta-list" class="rss-list">
+        <li>Chargement des posts Instagram...</li>
+      </ul>
+      <p style="font-size:0.9rem; color:#aaa; margin-top:10px;">Source : flux RSS Instagram (exemple via RSSHub).</p>
+    </section>
   </div>
 
   <script>
@@ -88,6 +97,35 @@
       .catch(() => {
         rssList.innerHTML = '<li>Impossible de charger le flux RSS pour le moment.</li>';
       });
+
+    const instaList = document.getElementById('insta-list');
+    const instaRssUrl = 'https://rsshub.app/instagram/user/mkbhd';
+    const instaApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(instaRssUrl)}`;
+
+    fetch(instaApiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.items || !data.items.length) {
+          instaList.innerHTML = '<li>Aucun post Instagram disponible pour le moment.</li>';
+          return;
+        }
+
+        const latest = data.items.slice(0, 6);
+        instaList.innerHTML = latest.map((item) => {
+          const thumb = item.thumbnail || '';
+          return `
+            <li class="rss-item">
+              ${thumb ? `<img src="${thumb}" alt="Aperçu post Instagram" class="rss-thumb">` : ''}
+              <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title || 'Post Instagram'}</a>
+              <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
+            </li>
+          `;
+        }).join('');
+      })
+      .catch(() => {
+        instaList.innerHTML = '<li>Impossible de charger les posts Instagram pour le moment.</li>';
+      });
+
   </script>
 </body>
 </html>
