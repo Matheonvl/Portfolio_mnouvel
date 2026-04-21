@@ -5,36 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veille - Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .rss-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .rss-item {
-      margin-bottom: 15px;
-      padding: 10px;
-      background: #1e1e1e;
-      border-radius: 8px;
-    }
-
-    .rss-item a {
-      color: #4da6ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .rss-item small {
-      display: block;
-      color: #aaa;
-      margin-top: 5px;
-    }
-  </style>
 </head>
 
 <body>
-
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
@@ -48,36 +21,62 @@
         <li><a href="CV.html">Mon CV</a></li>
       </ul>
     </nav>
+
+    <div class="social-icons">
+      <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
+      <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
+    </div>
   </div>
 
   <!-- CONTENU -->
   <div class="main-content">
     <header>
-      <h1>Veille Cybersécurité</h1>
-      <p>Articles récents sur les nouvelles menaces et vulnérabilités.</p>
+      <h1>Veille Informatique</h1>
+      <p>Actualités cybersécurité et réseaux en temps quasi réel.</p>
     </header>
 
+    <!-- CYBER -->
     <section class="rss-feed">
-      <h2>🛡️ Actualités cybersécurité (temps quasi réel)</h2>
-      <ul id="rss-list" class="rss-list">
-        <li>Chargement des actualités...</li>
+      <h2>🛡️ Cybersécurité</h2>
+      <ul id="cyber-list" class="rss-list">
+        <li>Chargement...</li>
       </ul>
     </section>
+
+    <!-- SEPARATION -->
+    <hr style="margin:40px 0; border:1px solid #333;">
+
+    <!-- RESEAUX -->
+    <section class="rss-feed">
+      <h2>🌐 Réseaux & Infrastructures</h2>
+      <ul id="network-list" class="rss-list">
+        <li>Chargement...</li>
+      </ul>
+    </section>
+
   </div>
 
 <script>
-const rssList = document.getElementById('rss-list');
-
-const feeds = [
-  "https://www.cert.ssi.gouv.fr/feed/",
-  "https://feeds.feedburner.com/TheHackersNews",
-  "https://www.bleepingcomputer.com/feed/",
-  "https://krebsonsecurity.com/feed/"
-];
+const cyberList = document.getElementById('cyber-list');
+const networkList = document.getElementById('network-list');
 
 const API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-// Traduction simple EN → FR
+// CYBER
+const cyberFeeds = [
+  "https://www.cert.ssi.gouv.fr/feed/",
+  "https://feeds.feedburner.com/TheHackersNews",
+  "https://www.bleepingcomputer.com/feed/"
+];
+
+// RESEAUX
+const networkFeeds = [
+  "https://www.networkworld.com/index.rss",
+  "https://www.lightreading.com/rss.xml",
+  "https://feeds.feedburner.com/packetpushers"
+];
+
+// Traduction
 async function translate(text) {
   try {
     const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|fr`);
@@ -88,7 +87,8 @@ async function translate(text) {
   }
 }
 
-async function loadFeeds() {
+// Charger une catégorie
+async function loadCategory(feeds, container, limit) {
   try {
     let allItems = [];
 
@@ -100,41 +100,50 @@ async function loadFeeds() {
       }
     }
 
-    // Trier par date (récent → ancien)
     allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-    // Limite à 10 articles MAX
-    const latest = allItems.slice(0, 10);
+    const latest = allItems.slice(0, limit);
 
     const itemsHTML = await Promise.all(latest.map(async (item) => {
 
       let title = item.title;
+      let translated = false;
 
-      // Détection simple anglais → traduction
       if (!title.match(/[àâçéèêëîïôûùüÿñæœ]/i)) {
-        title = await translate(title);
+        const translatedText = await translate(title);
+        if (translatedText !== title) {
+          title = translatedText;
+          translated = true;
+        }
       }
 
       return `
         <li class="rss-item">
           <a href="${item.link}" target="_blank">${title}</a>
-          <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
+          <small>
+            ${new Date(item.pubDate).toLocaleDateString('fr-FR')}
+            ${translated ? " • traduit depuis l’anglais" : ""}
+          </small>
         </li>
       `;
     }));
 
-    rssList.innerHTML = itemsHTML.join('');
+    container.innerHTML = itemsHTML.join('');
 
-  } catch (error) {
-    rssList.innerHTML = "<li>Erreur de chargement des actualités.</li>";
+  } catch {
+    container.innerHTML = "<li>Erreur de chargement.</li>";
   }
 }
 
-// Chargement initial
-loadFeeds();
+// Charger tout
+function loadAll() {
+  loadCategory(cyberFeeds, cyberList, 5);
+  loadCategory(networkFeeds, networkList, 5);
+}
 
-// Refresh auto toutes les 10 minutes (optionnel)
-setInterval(loadFeeds, 600000);
+loadAll();
+
+// refresh auto
+setInterval(loadAll, 600000);
 
 </script>
 
