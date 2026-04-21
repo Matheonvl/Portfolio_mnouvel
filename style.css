@@ -410,3 +410,60 @@ body::before {
 @media (max-width: 480px) {
     .photo-horizontal { height: 100px; object-position: center 55%; }
 }
+/* ======== AJOUT VEILLE (SANS IMPACT AUTRES PAGES) ======== */
+
+/* Grille améliorée uniquement pour la veille */
+.rss-feed .rss-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+/* Carte article améliorée */
+.rss-feed .rss-item {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Effet hover */
+.rss-feed .rss-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Image article */
+.rss-feed .rss-thumb {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Titre */
+.rss-feed .rss-item a {
+    display: block;
+    color: #9fd0ff;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Meta infos (date + traduction) */
+.rss-feed .rss-item small {
+    display: block;
+    margin-top: 6px;
+    color: #aaa;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Séparateur uniquement dans veille */
+.main-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #444, transparent);
+    margin: 40px 0;
+}
