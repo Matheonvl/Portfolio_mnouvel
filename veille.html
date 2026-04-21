@@ -5,8 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veille - Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .rss-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .rss-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #1e1e1e;
+      border-radius: 8px;
+    }
+
+    .rss-item a {
+      color: #4da6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .rss-item small {
+      display: block;
+      color: #aaa;
+      margin-top: 5px;
+    }
+  </style>
 </head>
+
 <body>
+
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
@@ -20,112 +48,95 @@
         <li><a href="CV.html">Mon CV</a></li>
       </ul>
     </nav>
-
-    <!-- ICÔNES SOCIALES -->
-    <div class="social-icons">
-      <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
-      <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
-    </div>
   </div>
 
-  <!-- CONTENU PRINCIPAL -->
+  <!-- CONTENU -->
   <div class="main-content">
     <header>
-      <h1>Veille Informatique</h1>
-      <p>Voici mes méthodes de veille technologique, avec les outils que j’utilise.</p>
+      <h1>Veille Cybersécurité</h1>
+      <p>Articles récents sur les nouvelles menaces et vulnérabilités.</p>
     </header>
 
-    <section>
-      <h2>🔄 Veille en mode Pull</h2>
-      <p>Je recherche activement des informations en consultant des sources sélectionnées.</p>
-      <ul>
-        <li>Instagram</li>
-        <li>Twitter</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>📩 Veille en mode Push</h2>
-      <p>Je reçois directement des informations pertinentes via des flux ou newsletters.</p>
-      <ul>
-        <li>Daily.dev</li>
-        <li>Melwater</li>
-      </ul>
-    </section>
-
-
     <section class="rss-feed">
-      <h2>📰 Exemple de flux RSS (Daily.dev)</h2>
-      <p>Exemple d'intégration automatique des dernières actualités via un flux RSS.</p>
+      <h2>🛡️ Actualités cybersécurité (temps quasi réel)</h2>
       <ul id="rss-list" class="rss-list">
         <li>Chargement des actualités...</li>
       </ul>
-      <p style="font-size:0.9rem; color:#aaa; margin-top:10px;">Source RSS : Daily.dev (exemple).</p>
-    </section>
-
-    <section class="rss-feed">
-      <h2>📸 Exemple Instagram : @mkbhd</h2>
-      <p>Affichage des derniers posts Instagram de Marques Brownlee (exemple de rendu).</p>
-      <ul id="insta-list" class="rss-list">
-        <li>Chargement des posts Instagram...</li>
-      </ul>
-      <p style="font-size:0.9rem; color:#aaa; margin-top:10px;">Source : flux RSS Instagram (exemple via RSSHub).</p>
     </section>
   </div>
 
-  <script>
-    const rssList = document.getElementById('rss-list');
-    const rssUrl = 'https://daily.dev/blog/rss';
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+<script>
+const rssList = document.getElementById('rss-list');
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.items || !data.items.length) {
-          rssList.innerHTML = '<li>Aucune actualité disponible pour le moment.</li>';
-          return;
-        }
+const feeds = [
+  "https://www.cert.ssi.gouv.fr/feed/",
+  "https://feeds.feedburner.com/TheHackersNews",
+  "https://www.bleepingcomputer.com/feed/",
+  "https://krebsonsecurity.com/feed/"
+];
 
-        const latest = data.items.slice(0, 5);
-        rssList.innerHTML = latest.map((item) => `
-          <li class="rss-item">
-            <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
-            <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
-          </li>
-        `).join('');
-      })
-      .catch(() => {
-        rssList.innerHTML = '<li>Impossible de charger le flux RSS pour le moment.</li>';
-      });
+const API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-    const instaList = document.getElementById('insta-list');
-    const instaRssUrl = 'https://rsshub.app/instagram/user/mkbhd';
-    const instaApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(instaRssUrl)}`;
+// Traduction simple EN → FR
+async function translate(text) {
+  try {
+    const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|fr`);
+    const data = await res.json();
+    return data.responseData.translatedText;
+  } catch {
+    return text;
+  }
+}
 
-    fetch(instaApiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.items || !data.items.length) {
-          instaList.innerHTML = '<li>Aucun post Instagram disponible pour le moment.</li>';
-          return;
-        }
+async function loadFeeds() {
+  try {
+    let allItems = [];
 
-        const latest = data.items.slice(0, 6);
-        instaList.innerHTML = latest.map((item) => {
-          const thumb = item.thumbnail || '';
-          return `
-            <li class="rss-item">
-              ${thumb ? `<img src="${thumb}" alt="Aperçu post Instagram" class="rss-thumb">` : ''}
-              <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title || 'Post Instagram'}</a>
-              <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
-            </li>
-          `;
-        }).join('');
-      })
-      .catch(() => {
-        instaList.innerHTML = '<li>Impossible de charger les posts Instagram pour le moment.</li>';
-      });
+    for (let feed of feeds) {
+      const res = await fetch(API + encodeURIComponent(feed));
+      const data = await res.json();
+      if (data.items) {
+        allItems = allItems.concat(data.items);
+      }
+    }
 
-  </script>
+    // Trier par date (récent → ancien)
+    allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+    // Limite à 10 articles MAX
+    const latest = allItems.slice(0, 10);
+
+    const itemsHTML = await Promise.all(latest.map(async (item) => {
+
+      let title = item.title;
+
+      // Détection simple anglais → traduction
+      if (!title.match(/[àâçéèêëîïôûùüÿñæœ]/i)) {
+        title = await translate(title);
+      }
+
+      return `
+        <li class="rss-item">
+          <a href="${item.link}" target="_blank">${title}</a>
+          <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
+        </li>
+      `;
+    }));
+
+    rssList.innerHTML = itemsHTML.join('');
+
+  } catch (error) {
+    rssList.innerHTML = "<li>Erreur de chargement des actualités.</li>";
+  }
+}
+
+// Chargement initial
+loadFeeds();
+
+// Refresh auto toutes les 10 minutes (optionnel)
+setInterval(loadFeeds, 600000);
+
+</script>
+
 </body>
 </html>
