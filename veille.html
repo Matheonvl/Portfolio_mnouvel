@@ -52,6 +52,42 @@
         <li>Melwater</li>
       </ul>
     </section>
+
+
+    <section class="rss-feed">
+      <h2>📰 Exemple de flux RSS (Daily.dev)</h2>
+      <p>Exemple d'intégration automatique des dernières actualités via un flux RSS.</p>
+      <ul id="rss-list" class="rss-list">
+        <li>Chargement des actualités...</li>
+      </ul>
+      <p style="font-size:0.9rem; color:#aaa; margin-top:10px;">Source RSS : Daily.dev (exemple).</p>
+    </section>
   </div>
+
+  <script>
+    const rssList = document.getElementById('rss-list');
+    const rssUrl = 'https://daily.dev/blog/rss';
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.items || !data.items.length) {
+          rssList.innerHTML = '<li>Aucune actualité disponible pour le moment.</li>';
+          return;
+        }
+
+        const latest = data.items.slice(0, 5);
+        rssList.innerHTML = latest.map((item) => `
+          <li class="rss-item">
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+            <small>${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
+          </li>
+        `).join('');
+      })
+      .catch(() => {
+        rssList.innerHTML = '<li>Impossible de charger le flux RSS pour le moment.</li>';
+      });
+  </script>
 </body>
 </html>
