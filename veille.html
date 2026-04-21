@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veille - Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .rss-thumb {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
     <nav>
@@ -28,14 +37,12 @@
     </div>
   </div>
 
-  <!-- CONTENU -->
   <div class="main-content">
     <header>
       <h1>Veille Informatique</h1>
       <p>Actualités cybersécurité et réseaux en temps quasi réel.</p>
     </header>
 
-    <!-- CYBER -->
     <section class="rss-feed">
       <h2>🛡️ Cybersécurité</h2>
       <ul id="cyber-list" class="rss-list">
@@ -43,17 +50,14 @@
       </ul>
     </section>
 
-    <!-- SEPARATION -->
     <hr style="margin:40px 0; border:1px solid #333;">
 
-    <!-- RESEAUX -->
     <section class="rss-feed">
       <h2>🌐 Réseaux & Infrastructures</h2>
       <ul id="network-list" class="rss-list">
         <li>Chargement...</li>
       </ul>
     </section>
-
   </div>
 
 <script>
@@ -62,21 +66,18 @@ const networkList = document.getElementById('network-list');
 
 const API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-// CYBER
 const cyberFeeds = [
   "https://www.cert.ssi.gouv.fr/feed/",
   "https://feeds.feedburner.com/TheHackersNews",
   "https://www.bleepingcomputer.com/feed/"
 ];
 
-// RESEAUX
 const networkFeeds = [
   "https://www.networkworld.com/index.rss",
   "https://www.lightreading.com/rss.xml",
   "https://feeds.feedburner.com/packetpushers"
 ];
 
-// Traduction
 async function translate(text) {
   try {
     const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|fr`);
@@ -87,7 +88,6 @@ async function translate(text) {
   }
 }
 
-// Charger une catégorie
 async function loadCategory(feeds, container, limit) {
   try {
     let allItems = [];
@@ -105,23 +105,27 @@ async function loadCategory(feeds, container, limit) {
 
     const itemsHTML = await Promise.all(latest.map(async (item) => {
 
-      let title = item.title;
+      let originalTitle = item.title;
+      let displayTitle = originalTitle;
       let translated = false;
 
-      if (!title.match(/[àâçéèêëîïôûùüÿñæœ]/i)) {
-        const translatedText = await translate(title);
-        if (translatedText !== title) {
-          title = translatedText;
+      if (!originalTitle.match(/[àâçéèêëîïôûùüÿñæœ]/i)) {
+        const translatedText = await translate(originalTitle);
+        if (translatedText !== originalTitle) {
+          displayTitle = translatedText;
           translated = true;
         }
       }
 
+      const thumb = item.thumbnail || "";
+
       return `
         <li class="rss-item">
-          <a href="${item.link}" target="_blank">${title}</a>
+          ${thumb ? `<img src="${thumb}" class="rss-thumb">` : ""}
+          <a href="${item.link}" target="_blank">${displayTitle}</a>
           <small>
             ${new Date(item.pubDate).toLocaleDateString('fr-FR')}
-            ${translated ? " • traduit depuis l’anglais" : ""}
+            ${translated ? `<br>traduit depuis l’anglais (${originalTitle})` : ""}
           </small>
         </li>
       `;
@@ -134,15 +138,12 @@ async function loadCategory(feeds, container, limit) {
   }
 }
 
-// Charger tout
 function loadAll() {
   loadCategory(cyberFeeds, cyberList, 5);
   loadCategory(networkFeeds, networkList, 5);
 }
 
 loadAll();
-
-// refresh auto
 setInterval(loadAll, 600000);
 
 </script>
