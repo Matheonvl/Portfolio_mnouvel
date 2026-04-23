@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>Mon Portfolio</h2>
     <nav>
@@ -16,43 +15,253 @@
         <li><a href="experiences.html">Expériences</a></li>
         <li><a href="projets.html" class="active">Projets</a></li>
         <li><a href="veille.html">Veille</a></li>
-        <li><a href="tableau.html">Tableau Excel</a></li>
+        <li><a href="tableau.html">Fiche de synthèse</a></li>
         <li><a href="CV.html">Mon CV</a></li>
-        <li><a href="epreuveE6.html">Épreuve E6</a></li>
-        <li><a href="epreuveE7.html">Épreuve E7</a></li>
       </ul>
     </nav>
 
-    <!-- ICÔNES SOCIALES -->
     <div class="social-icons">
       <a href="https://wa.me/33602211517" target="_blank" class="social whatsapp">💬</a>
       <a href="https://www.linkedin.com/in/matheo-nouvel-5413a9300/" target="_blank" class="social linkedin">🔗</a>
     </div>
   </div>
 
-  <!-- CONTENU PRINCIPAL -->
   <div class="main-content">
     <header>
       <h1>Mes projets</h1>
-      <p>Voici mes projets réalisés en entreprise et en cours de formation.</p>
+      <p>Clique sur une case : le contenu du projet s'ouvre en popup.</p>
     </header>
 
-    <section>
+    <section class="projets-bloc">
       <h2>🏢 Projets en entreprise</h2>
-      <ul>
-        <li>Mise en place d’un GLPI pour la gestion des incidents et du parc informatique</li>
-        <li>Refonte d’une installation réseau complète (câblage, serveurs, postes)</li>
-      </ul>
+      <div class="projets-grid">
+        <button class="projet-card modal-trigger" data-modal="modal-glpi-entreprise" type="button">
+          <h3>GLPI en entreprise</h3>
+          <p>Mise en place d'un outil de ticketing et d'inventaire pour structurer le support.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+      </div>
     </section>
 
-    <section>
-      <h2>🎓 Projets en cours</h2>
-      <ul>
-        <li>Supervision réseau avec Zabbix</li>
-        <li>Mise en place d’un Active Directory pour la gestion des utilisateurs et groupes</li>
-        <li>Veille technologique et documentation des solutions</li>
-      </ul>
+    <section class="projets-bloc">
+      <h2>🎓 Projets de cours</h2>
+      <div class="projets-grid">
+        <button class="projet-card modal-trigger" data-modal="modal-ad" type="button">
+          <h3>Active Directory</h3>
+          <p>Mise en place d'un domaine Windows et administration des comptes.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+
+        <button class="projet-card modal-trigger" data-modal="modal-zabbix" type="button">
+          <h3>Supervision réseau avec Zabbix</h3>
+          <p>Surveillance des équipements, alertes et tableaux de bord de disponibilité.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="projets-bloc">
+      <h2>🎮 Projet perso</h2>
+      <div class="projets-grid">
+        <button class="projet-card modal-trigger" data-modal="modal-minecraft" type="button">
+          <h3>Création d'un serveur Minecraft</h3>
+          <p>Déploiement, sécurité, gestion des plugins et sauvegardes automatisées.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+      </div>
     </section>
   </div>
+
+  <!-- MODAL ENTREPRISE : GLPI -->
+  <div class="modal" id="modal-glpi-entreprise" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI en entreprise">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet en entreprise : mise en place de GLPI</h2>
+      <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
+
+      <h3>Contexte</h3>
+      <p>
+        Avant GLPI, les demandes passaient surtout par mail ou à l'oral, ce qui rendait le suivi difficile
+        (perte d'informations, priorisation compliquée, manque d'historique). L'inventaire du matériel
+        n'était pas centralisé.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>Serveur Windows (ou VM) pour héberger XAMPP + GLPI.</li>
+        <li>Accès réseau interne et service mail pour les notifications.</li>
+        <li>Postes clients pour les tests d'accès utilisateurs.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>Environ 4 à 6 jours (installation, configuration, tests et documentation).</p>
+
+      <h3>Coût de production (estimatif)</h3>
+      <ul>
+        <li>Logiciels : 0 € (GLPI open source, XAMPP gratuit).</li>
+        <li>Infrastructure : coût serveur/VM déjà présent en entreprise.</li>
+        <li>Coût principal : temps humain de mise en place et de paramétrage.</li>
+      </ul>
+
+      <h3>Mise en œuvre</h3>
+      <ul>
+        <li>Installation de GLPI avec la pile XAMPP.</li>
+        <li>Configuration des catégories, files de tickets et notifications mail.</li>
+        <li>Connexion LDAP/Active Directory pour l'authentification des utilisateurs.</li>
+        <li>Ajout du plugin Formcreator pour créer des formulaires adaptés aux besoins.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL ACTIVE DIRECTORY -->
+  <div class="modal" id="modal-ad" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Active Directory">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet de cours : Active Directory</h2>
+
+      <h3>Contexte</h3>
+      <p>
+        Le but était de comprendre l'administration centralisée d'un parc informatique en entreprise
+        à travers la mise en place d'un domaine Windows.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>1 serveur Windows Server (physique ou VM) pour le contrôleur de domaine.</li>
+        <li>1 à 2 postes clients Windows pour les tests de jonction au domaine.</li>
+        <li>Réseau local avec adressage IP fixe pour le serveur.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>Environ 2 à 3 jours (installation AD DS, OU, GPO, tests de jonction).</p>
+
+      <h3>Coût de production (estimatif)</h3>
+      <ul>
+        <li>En laboratoire : coût faible si virtualisation déjà disponible.</li>
+        <li>Coût principal : licences Windows Server et temps de configuration.</li>
+      </ul>
+
+      <h3>Étapes clés</h3>
+      <ul>
+        <li>Installation du rôle AD DS et promotion en contrôleur de domaine.</li>
+        <li>Création des OU, utilisateurs et groupes de sécurité.</li>
+        <li>Application de GPO pour la sécurité et la configuration des postes.</li>
+        <li>Tests de jonction des postes clients au domaine.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL ZABBIX -->
+  <div class="modal" id="modal-zabbix" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Zabbix">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet de cours : supervision avec Zabbix</h2>
+      <img src="zabbix.png" alt="Projet Zabbix" style="width:100%; max-width:480px; display:block; margin:16px auto;">
+
+      <h3>Contexte</h3>
+      <p>
+        Objectif : surveiller en temps réel l'état des services réseau pour détecter rapidement les incidents
+        et limiter les interruptions de service.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>1 serveur Zabbix (Linux ou VM).</li>
+        <li>Équipements/serveurs à superviser (switch, routeur, serveurs, postes tests).</li>
+        <li>Accès réseau pour SNMP/agent Zabbix.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>Environ 2 à 4 jours (installation, templates, alertes, dashboards).</p>
+
+      <h3>Coût de production (estimatif)</h3>
+      <ul>
+        <li>Logiciel : 0 € (Zabbix open source).</li>
+        <li>Coût principal : ressources serveur + temps de configuration.</li>
+      </ul>
+
+      <h3>Étapes clés</h3>
+      <ul>
+        <li>Configuration des hôtes, templates et déclencheurs d'alertes.</li>
+        <li>Création de tableaux de bord de suivi en temps réel.</li>
+        <li>Analyse des événements et documentation des actions correctives.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL MINECRAFT -->
+  <div class="modal" id="modal-minecraft" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Minecraft">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet perso : création d'un serveur Minecraft</h2>
+
+      <h3>Contexte</h3>
+      <p>
+        Projet personnel pour pratiquer l'administration système/réseau en conditions réelles,
+        avec des utilisateurs connectés et des besoins de stabilité.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>PC/serveur ou VPS avec RAM suffisante pour les joueurs.</li>
+        <li>Connexion internet stable + ouverture/redirect de ports.</li>
+        <li>Système de sauvegarde local ou distant.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>Environ 1 à 2 jours pour la mise en place initiale, puis maintenance continue.</p>
+
+      <h3>Coût de production (estimatif)</h3>
+      <ul>
+        <li>Hébergement local : coût électrique et matériel existant.</li>
+        <li>VPS : environ 10 à 25 €/mois selon les performances.</li>
+      </ul>
+
+      <h3>Étapes clés</h3>
+      <ul>
+        <li>Installation du serveur Java et configuration réseau.</li>
+        <li>Gestion des permissions et des plugins/modérations.</li>
+        <li>Automatisation des sauvegardes et redémarrages.</li>
+        <li>Optimisation des performances et surveillance de la stabilité.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const triggers = document.querySelectorAll('.modal-trigger');
+    const modals = document.querySelectorAll('.modal');
+
+    function closeAllModals() {
+      modals.forEach((modal) => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal || event.target.classList.contains('modal-close')) {
+          closeAllModals();
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeAllModals();
+    });
+  </script>
 </body>
 </html>
