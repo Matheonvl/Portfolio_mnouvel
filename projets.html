@@ -88,25 +88,27 @@
 
       <h3>Matériel nécessaire</h3>
       <ul>
-        <li>Serveur Windows (ou VM) pour héberger XAMPP + GLPI.</li>
+        <li>Serveur Windows 2025 (sur une VM) pour héberger XAMPP + GLPI.
+            Serveur active directory</li>
         <li>Accès réseau interne et service mail pour les notifications.</li>
         <li>Postes clients pour les tests d'accès utilisateurs.</li>
       </ul>
 
       <h3>Temps de production</h3>
-      <p>Environ 4 à 6 jours (installation, configuration, tests et documentation).</p>
+      <p>Environ 1 à 2 heures pour l'installation de la VM (création de la machine virtuelle + installation de xammp et GLPI + connectivité à L'active directory.
+         Environ 30 min  pour générer le systéme de mail </p>
 
-      <h3>Coût de production (estimatif)</h3>
+      <h3>Coût de production </h3>
       <ul>
         <li>Logiciels : 0 € (GLPI open source, XAMPP gratuit).</li>
-        <li>Infrastructure : coût serveur/VM déjà présent en entreprise.</li>
-        <li>Coût principal : temps humain de mise en place et de paramétrage.</li>
+        <li>Infrastructure : coût  d'entretien serveur (non connue de ma part).</li>
+        <li>Coût principal : temps humain de mise en place et de paramétrage. ≈ 15,33 € net</li>
       </ul>
 
       <h3>Mise en œuvre</h3>
       <ul>
-        <li>Installation de GLPI avec la pile XAMPP.</li>
-        <li>Configuration des catégories, files de tickets et notifications mail.</li>
+        <li>Installation de GLPI avec la pile XAMPP et modification du fichier php.ini pour ajouter les bonnes extentions.</li>
+        <li>Suppréssion des demandes par tickets (tout ce fera par formulaire).</li>
         <li>Connexion LDAP/Active Directory pour l'authentification des utilisateurs.</li>
         <li>Ajout du plugin Formcreator pour créer des formulaires adaptés aux besoins.</li>
       </ul>
@@ -117,7 +119,7 @@
   <div class="modal" id="modal-ad" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet Active Directory">
       <button class="modal-close" type="button" aria-label="Fermer">✖</button>
-      <h2>Projet de cours : Active Directory</h2>
+      <h2>Projet de cours : Installation d'Active Directory</h2>
 
       <h3>Contexte</h3>
       <p>
@@ -127,18 +129,18 @@
 
       <h3>Matériel nécessaire</h3>
       <ul>
-        <li>1 serveur Windows Server (physique ou VM) pour le contrôleur de domaine.</li>
-        <li>1 à 2 postes clients Windows pour les tests de jonction au domaine.</li>
+        <li>1 serveur Windows Server (sur un proxmox heberger sur un serveur phisique dans une salle de ours spécialiser pour cela) pour le contrôleur de domaine.</li>
+        <li>2 postes clients Windows pour les tests de jonction au domaine.</li>
         <li>Réseau local avec adressage IP fixe pour le serveur.</li>
       </ul>
 
       <h3>Temps de production</h3>
-      <p>Environ 2 à 3 jours (installation AD DS, OU, GPO, tests de jonction).</p>
+      <p>1 jours (installation AD DS, OU, GPO, tests de jonction).</p>
 
-      <h3>Coût de production (estimatif)</h3>
+      <h3>Coût de production </h3>
       <ul>
-        <li>En laboratoire : coût faible si virtualisation déjà disponible.</li>
-        <li>Coût principal : licences Windows Server et temps de configuration.</li>
+        <li>En laboratoire : coût faible mais pas connue car c'est le matériel de l'école.</li>
+        <li>Coût principal : temps de configuration.</li>
       </ul>
 
       <h3>Étapes clés</h3>
@@ -166,15 +168,15 @@
 
       <h3>Matériel nécessaire</h3>
       <ul>
-        <li>1 serveur Zabbix (Linux ou VM).</li>
+        <li>1 serveur Zabbix (Linux sur une VM proxmox).</li>
         <li>Équipements/serveurs à superviser (switch, routeur, serveurs, postes tests).</li>
         <li>Accès réseau pour SNMP/agent Zabbix.</li>
       </ul>
 
       <h3>Temps de production</h3>
-      <p>Environ 2 à 4 jours (installation, templates, alertes, dashboards).</p>
+      <p>2 Jours ouvrées (installation, templates, alertes, dashboards).</p>
 
-      <h3>Coût de production (estimatif)</h3>
+      <h3>Coût de production</h3>
       <ul>
         <li>Logiciel : 0 € (Zabbix open source).</li>
         <li>Coût principal : ressources serveur + temps de configuration.</li>
