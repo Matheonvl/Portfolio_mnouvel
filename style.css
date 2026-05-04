@@ -364,6 +364,24 @@ body::before {
 
 
 
+
+
+/* ======== EXPERIENCES - CASES ======== */
+.experiences-grid {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.experience-card h2 {
+    margin-bottom: 10px;
+}
+
+.experience-card ul {
+    margin-left: 18px;
+}
+
 /* ======== VEILLE - CASES ======== */
 .veille-grid {
     display: grid;
