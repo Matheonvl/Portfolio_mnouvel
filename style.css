@@ -455,3 +455,37 @@ body::before {
 @media (max-width: 480px) {
     .photo-horizontal { height: 100px; object-position: center 55%; }
 }
+/* ======== BTS SIO ======== */
+.bts-intro {
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+.bts-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.bts-card {
+    padding: 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.bts-card h2 {
+    color: #79b8ff;
+    margin-bottom: 10px;
+}
+
+.bts-card p {
+    color: #dcdcdc;
+}
+
+.bts-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(77, 163, 255, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
