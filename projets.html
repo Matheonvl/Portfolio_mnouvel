@@ -41,6 +41,18 @@
           <p>Mise en place d'un outil de ticketing et d'inventaire pour structurer le support.</p>
           <span>Ouvrir le projet ↗</span>
         </button>
+
+        <button class="projet-card modal-trigger" data-modal="modal-equipements" type="button">
+          <h3>Installation d'équipements informatiques</h3>
+          <p>Préparation, configuration et mise en service d'ordinateurs et de téléphones mobiles.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
+
+        <button class="projet-card modal-trigger" data-modal="modal-wifi-ubiquiti" type="button">
+          <h3>Changement de borne Wi-Fi Ubiquiti</h3>
+          <p>Remplacement d'une borne Wi-Fi, configuration réseau et vérification de la couverture.</p>
+          <span>Ouvrir le projet ↗</span>
+        </button>
       </div>
     </section>
 
@@ -112,6 +124,92 @@
         <li>Suppréssion des demandes par tickets (tout ce fera par formulaire).</li>
         <li>Connexion LDAP/Active Directory pour l'authentification des utilisateurs.</li>
         <li>Ajout du plugin Formcreator pour créer des formulaires adaptés aux besoins.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL ENTREPRISE : ÉQUIPEMENTS INFORMATIQUES -->
+  <div class="modal" id="modal-equipements" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet installation d'équipements informatiques">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet en entreprise : installation et mise en place d'équipements informatiques</h2>
+
+      <h3>Contexte</h3>
+      <p>
+        Dans le cadre de mon alternance, j'ai participé à la préparation et au déploiement d'équipements
+        informatiques pour les utilisateurs : ordinateurs fixes ou portables, téléphones mobiles et accessoires.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>Ordinateurs fixes ou portables à préparer.</li>
+        <li>Téléphones mobiles professionnels à configurer.</li>
+        <li>Accès au réseau de l'entreprise, comptes utilisateurs et logiciels métiers.</li>
+        <li>Outils de suivi pour l'inventaire et la traçabilité du matériel.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>
+        Variable selon le nombre d'équipements : environ 30 minutes à 1 heure pour un poste simple,
+        puis du temps supplémentaire pour les logiciels métiers, les tests et la remise à l'utilisateur.
+      </p>
+
+      <h3>Coût de production</h3>
+      <ul>
+        <li>Coût du matériel selon le type d'ordinateur ou de téléphone.</li>
+        <li>Coût principal : temps de préparation, configuration et support utilisateur.</li>
+      </ul>
+
+      <h3>Mise en œuvre</h3>
+      <ul>
+        <li>Préparation du poste : installation, mises à jour et configuration de base.</li>
+        <li>Installation des logiciels nécessaires et paramétrage des accès.</li>
+        <li>Configuration du téléphone mobile professionnel si besoin.</li>
+        <li>Ajout ou mise à jour du matériel dans l'inventaire.</li>
+        <li>Tests de fonctionnement avant remise à l'utilisateur.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL ENTREPRISE : BORNE WIFI UBIQUITI -->
+  <div class="modal" id="modal-wifi-ubiquiti" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet changement de borne Wi-Fi Ubiquiti">
+      <button class="modal-close" type="button" aria-label="Fermer">✖</button>
+      <h2>Projet en entreprise : changement de borne Wi-Fi Ubiquiti</h2>
+
+      <h3>Contexte</h3>
+      <p>
+        Ce projet consistait à remplacer une borne Wi-Fi Ubiquiti afin d'améliorer ou de rétablir la connexion
+        sans fil sur une zone donnée, tout en conservant une configuration réseau cohérente avec l'existant.
+      </p>
+
+      <h3>Matériel nécessaire</h3>
+      <ul>
+        <li>Borne Wi-Fi Ubiquiti de remplacement.</li>
+        <li>Accès au contrôleur ou à l'interface d'administration Ubiquiti.</li>
+        <li>Câblage réseau et alimentation PoE selon l'installation.</li>
+        <li>Ordinateur de test ou téléphone pour vérifier la connexion Wi-Fi.</li>
+      </ul>
+
+      <h3>Temps de production</h3>
+      <p>
+        Environ 1 à 2 heures selon l'accessibilité de la borne, l'adoption dans le contrôleur,
+        la configuration et les tests de couverture Wi-Fi.
+      </p>
+
+      <h3>Coût de production</h3>
+      <ul>
+        <li>Coût de la borne Wi-Fi et des éventuels accessoires de fixation ou câblage.</li>
+        <li>Coût principal : temps d'intervention, configuration et vérification sur site.</li>
+      </ul>
+
+      <h3>Mise en œuvre</h3>
+      <ul>
+        <li>Identification de la borne à remplacer et vérification de son emplacement.</li>
+        <li>Débranchement de l'ancienne borne puis installation de la nouvelle.</li>
+        <li>Adoption et configuration de la borne dans l'interface Ubiquiti.</li>
+        <li>Vérification du SSID, de la sécurité Wi-Fi et de l'adressage réseau.</li>
+        <li>Tests de connexion et de couverture avec un équipement utilisateur.</li>
       </ul>
     </div>
   </div>
