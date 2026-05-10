@@ -74,7 +74,13 @@ async function translate(text) {
   try {
     const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|fr`);
     const data = await res.json();
-    return data.responseData.translatedText;
+    const translatedText = data.responseData?.translatedText || text;
+
+    if (translatedText.includes("MYMEMORY WARNING") || translatedText.includes("USAGELIMITS")) {
+      return text;
+    }
+
+    return translatedText;
   } catch {
     return text;
   }
