@@ -49,7 +49,7 @@
 
         <button class="projet-card modal-trigger" data-modal="modal-wifi-ubiquiti" type="button">
           <h3>Modification et Changement de borne Wi-Fi Ubiquiti</h3>
-          <p>Remplacement d'une borne Wi-Fi déffectueuse et mise en configuration au reseaux, configuration réseau et vérification de la couverture.</p>
+          <p>Remplacement d'une borne Wi-Fi défectueuse et mise en configuration de la borne sur le reseaux, configuration réseau et vérification de la couverture.</p>
           <span>Ouvrir le projet ↗</span>
         </button>
       </div>
@@ -60,7 +60,7 @@
       <div class="projets-grid">
         <button class="projet-card modal-trigger" data-modal="modal-ad" type="button">
           <h3>Active Directory</h3>
-          <p>Mise en place d'un domaine Windows et administration des comptes.</p>
+          <p>Mise en place d'un domaine sur Windows server et administration des comptes.</p>
           <span>Ouvrir le projet ↗</span>
         </button>
 
@@ -88,38 +88,38 @@
   <div class="modal" id="modal-glpi-entreprise" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-label="Projet GLPI en entreprise">
       <button class="modal-close" type="button" aria-label="Fermer">✖</button>
-      <h2>Projet en entreprise : mise en place de GLPI</h2>
+      <h2>Projet en entreprise :Installation de GLPI pour un service</h2>
       <img src="glpi.png" alt="Projet GLPI" style="width:100%; max-width:420px; display:block; margin:16px auto;">
 
       <h3>Contexte</h3>
       <p>
         À la mairie de Lisieux, nous utilisons GLPI pour centraliser les demandes et problèmes des utilisateurs. De ce fait, le service communication nous à demander
-        de mettre en place un autre GLPI  pour eux afin que les autres cervices puisse faire leur demande d'équipement lors des événements (affiche, barrières, etc.)
+        de mettre en place un autre GLPI  pour eux afin que les autres services puisse faire leur demande d'équipement lors des événements (affiche, barrières, etc.)
         J'ai donc était missionnée afin de l'installer et de le configurer pour leur service.
       </p>
 
       <h3>Matériel nécessaire</h3>
       <ul>
         <li>Serveur Windows 2025 (sur une VM) pour héberger XAMPP + GLPI avec également un active directory </li>
-        <li>Accès réseau interne et service mail pour les notifications.</li>
+        <li>Accès au réseau interne et service mail pour les notifications.</li>
         <li>Postes clients pour les tests d'accès utilisateurs.</li>
       </ul>
 
       <h3>Temps de production</h3>
-      <p>10 jours pour l'installation de la VM (création de la machine virtuelle + installation de xammp et GLPI + connectivité à L'active directory.
-       1h30 min  pour savoir  générer le systéme de mail et le mettre en place </p>
+      <p>10 jours pour l'installation de la VM (Création de la machine virtuelle + installation de XAMPP et GLPI + connectivité à L'active directory.
+       1h30 min pour savoir générer le système de mail et le mettre en place </p>
 
       <h3>Coût de production </h3>
       <ul>
         <li>Logiciels : 0 € (GLPI open source, XAMPP gratuit).</li>
-        <li>Infrastructure : coût  d'entretien serveur (non connue de ma part).</li>
+        <li>Infrastructure : coût d'entretien serveur (non connue de ma part).</li>
         <li>Coût principal : temps humain de mise en place et de paramétrage. ≈ 15,33 € net</li>
       </ul>
 
       <h3>Mise en œuvre</h3>
       <ul>
-        <li>Installation de GLPI avec la pile XAMPP et modification du fichier php.ini pour ajouter les bonnes extentions.</li>
-        <li>Suppréssion des demandes par tickets (tout ce fera par formulaire).</li>
+        <li>Installation de GLPI avec la pile XAMPP et modification du fichier php.ini pour ajouter les bonnes extensions.</li>
+        <li>Suppression des demandes par tickets (tout se fera par formulaire).</li>
         <li>Connexion LDAP/Active Directory pour l'authentification des utilisateurs.</li>
         <li>Ajout du plugin Formcreator pour créer des formulaires adaptés aux besoins.</li>
       </ul>
@@ -135,7 +135,7 @@
       <h3>Contexte</h3>
       <p>
         Dans le cadre de mon alternance, j'ai participé à la préparation et au déploiement d'équipements
-        informatiques pour les utilisateurs : ordinateurs fixes et portables, téléphones mobiles et accessoires (.
+        informatiques pour les utilisateurs : ordinateurs fixes et portables, téléphones mobiles et accessoires.
       </p>
 
       <h3>Matériel nécessaire</h3>
@@ -148,19 +148,19 @@
 
       <h3>Temps de production</h3>
       <p>
-        Variable selon le nombre d'équipements : environ 30 minutes à 1 heure pour un poste simple,
-        puis du temps supplémentaire pour les logiciels métiers, les tests et la remise à l'utilisateur.
+        Variable selon le nombre d'équipements : 1 Journée pour la préparation et l'installation des logiciels pour un poste simple,
+        puis du temps supplémentaire qui varie  pour les logiciels métiers, les tests et la remise à l'utilisateur.
       </p>
 
       <h3>Coût de production</h3>
       <ul>
         <li>Coût du matériel : varie selon le type de matériel.</li>
-        <li>Coût principal : temps de préparation, configuration et support utilisateur. (Varie selon le matériel)</li>
+        <li>Coût principal : temps de préparation, configuration et support utilisateur. (Varie selon le matériel).</li>
       </ul>
 
       <h3>Mise en œuvre</h3>
       <ul>
-        <li>Préparation du poste : installation, mises à jour et configuration de base.</li>
+        <li>Préparation du poste : installation, mise à jour et configuration de base.</li>
         <li>Installation des logiciels nécessaires et paramétrage des accès.</li>
         <li>Configuration du téléphone mobile professionnel si besoin.</li>
         <li>Ajout et mise à jour du matériel dans l'inventaire.</li>
@@ -179,7 +179,7 @@
       <h3>Contexte</h3>
       <p>
         Ce travail consistait à remplacer une borne Wi-Fi Ubiquiti afin d'améliorer ou de rétablir la connexion
-        sans fil sur une zone donnée, tout en conservant une configuration réseau cohérente avec l'existant.
+        sans-fil sur une zone donnée, tout en conservant la connexion reseaux.
       </p>
 
       <h3>Matériel nécessaire</h3>
@@ -192,7 +192,7 @@
 
       <h3>Temps de production</h3>
       <p>
-        Environ 1 à 2 heures selon l'accessibilité de la borne, l'adoption dans le contrôleur,
+        1 heures selon l'accessibilité de la borne, l'adoption dans le contrôleur,
         la configuration et les tests de couverture Wi-Fi.
       </p>
 
@@ -227,17 +227,17 @@
 
       <h3>Matériel nécessaire</h3>
       <ul>
-        <li>1 serveur Windows Server (sur un proxmox heberger sur un serveur phisique dans une salle de ours spécialiser pour cela) pour le contrôleur de domaine.</li>
+        <li>1 serveur Windows Server (sur un proxmox héberger sur un serveur physique dans une salle de cours spécialisé pour cela) pour le contrôleur de domaine.</li>
         <li>2 postes clients Windows pour les tests de jonction au domaine.</li>
         <li>Réseau local avec adressage IP fixe pour le serveur.</li>
       </ul>
 
       <h3>Temps de production</h3>
-      <p>1 jours (installation AD DS, OU, GPO, tests de jonction).</p>
+      <p>1 jour (installation AD DS, OU, GPO, tests de jonction).</p>
 
       <h3>Coût de production </h3>
       <ul>
-        <li>En laboratoire : coût faible mais pas connue car c'est le matériel de l'école.</li>
+        <li>En laboratoire : coût faible mais pas connu, car c'est le matériel de l'école.</li>
         <li>Coût principal : temps de configuration.</li>
       </ul>
 
@@ -272,7 +272,7 @@
       </ul>
 
       <h3>Temps de production</h3>
-      <p>2 Jours ouvrées (installation, templates, alertes, dashboards).</p>
+      <p>2 Jours (installation, templates, alertes, dashboards).</p>
 
       <h3>Coût de production</h3>
       <ul>
